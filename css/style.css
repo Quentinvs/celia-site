@@ -1,0 +1,1123 @@
+/* =====================================================
+   Site pour Célia - feuille de style commune à toutes les pages
+   Ambiance : rose, rouge, blanc, petites touches d'Halloween
+   ===================================================== */
+
+/* ---------- 1. Polices (stockées dans le dossier "polices") ---------- */
+@font-face {
+    font-family: "Quicksand";
+    src: url("../polices/quicksand-latin-400-normal.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Quicksand";
+    src: url("../polices/quicksand-latin-600-normal.woff2") format("woff2");
+    font-weight: 600;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Quicksand";
+    src: url("../polices/quicksand-latin-700-normal.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Pacifico";
+    src: url("../polices/pacifico-latin-400-normal.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* ---------- 2. Variables : toutes les couleurs au même endroit ---------- */
+:root {
+    --rose-pale: #fff0f5;
+    --rose-clair: #ffd6e4;
+    --rose: #ff8fb5;
+    --rose-vif: #ff4f8b;
+    --rouge: #d6204f;
+    --blanc: #ffffff;
+    --texte: #5a2a3c;
+    --prune: #3b1f33;
+    --orange: #ffa24d;
+    --violet: #6b3f8f;
+    --ombre: 0 10px 28px rgba(214, 32, 79, 0.18);
+    --police-titre: "Pacifico", "Brush Script MT", cursive;
+    --police-texte: "Quicksand", "Trebuchet MS", Arial, sans-serif;
+}
+
+/* ---------- 3. Base de la page ---------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--police-texte);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--texte);
+    background-color: var(--rose-pale);
+    /* petits pois roses en fond */
+    background-image: radial-gradient(var(--rose-clair) 2px, transparent 2px);
+    background-size: 28px 28px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--rouge);
+}
+
+h1, h2, h3 {
+    font-family: var(--police-titre);
+    font-weight: 400;
+    color: var(--rouge);
+    line-height: 1.25;
+}
+
+:focus-visible {
+    outline: 3px dashed var(--rouge);
+    outline-offset: 3px;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+}
+
+/* Lien d'accès rapide pour le clavier */
+.saut {
+    position: absolute;
+    left: -999px;
+}
+.saut:focus {
+    left: 10px;
+    top: 10px;
+    background: var(--blanc);
+    padding: 8px 14px;
+    border-radius: 12px;
+    z-index: 100;
+}
+
+/* ---------- 4. En-tête et menu ---------- */
+.entete {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 4px dashed var(--rose);
+}
+
+.entete-contenu {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--police-titre);
+    font-size: 1.7rem;
+    color: var(--rouge);
+    text-decoration: none;
+}
+
+.logo img {
+    width: 46px;
+    animation: balancier 3s ease-in-out infinite;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.menu a {
+    display: block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 2px solid var(--rose-clair);
+    background: var(--blanc);
+    color: var(--rouge);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.menu a:hover {
+    background: var(--rose-clair);
+    transform: translateY(-3px) rotate(-2deg);
+}
+
+.menu a[aria-current="page"] {
+    background: var(--rose-vif);
+    border-color: var(--rose-vif);
+    color: var(--blanc);
+}
+
+/* Bouton burger (visible seulement sur téléphone) */
+.burger {
+    display: none;
+    background: var(--rose-vif);
+    color: var(--blanc);
+    border: 0;
+    border-radius: 14px;
+    padding: 8px 14px;
+    font-size: 1.1rem;
+    font-family: var(--police-texte);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ---------- 5. Pluie de coeurs et de fleurs (créée par le JavaScript) ---------- */
+.pluie {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.chute {
+    position: absolute;
+    top: -80px;
+    opacity: 0.75;
+    animation: tombe linear infinite;
+}
+
+/* ---------- 6. Accueil : grand bloc du haut ---------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+    padding: 30px 0 10px;
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 12vw, 7rem);
+    margin: 0;
+    color: var(--rouge);
+    text-shadow: 4px 4px 0 var(--rose-clair);
+}
+
+/* Chaque lettre du prénom saute l'une après l'autre */
+.hero h1 span {
+    display: inline-block;
+    animation: saute 2.6s ease-in-out infinite;
+}
+.hero h1 span:nth-child(2) { animation-delay: 0.15s; }
+.hero h1 span:nth-child(3) { animation-delay: 0.3s; }
+.hero h1 span:nth-child(4) { animation-delay: 0.45s; }
+.hero h1 span:nth-child(5) { animation-delay: 0.6s; }
+
+.sous-titre {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 8px 0 16px;
+}
+
+.pastilles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pastille {
+    background: var(--blanc);
+    border: 3px solid var(--rose);
+    color: var(--rouge);
+    font-weight: 700;
+    padding: 4px 18px;
+    border-radius: 999px;
+    box-shadow: 3px 3px 0 var(--rose-clair);
+}
+
+/* Cadre en forme d'arche pour la photo principale */
+.cadre-arche {
+    position: relative;
+    max-width: 380px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.cadre-arche img.photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 190px 190px 28px 28px;
+    border: 8px solid var(--blanc);
+    box-shadow: var(--ombre), 0 0 0 4px var(--rose);
+}
+
+.cadre-arche .noeud-hero {
+    position: absolute;
+    top: -18px;
+    left: -26px;
+    width: 110px;
+    transform: rotate(-18deg);
+    animation: balancier 3s ease-in-out infinite;
+}
+
+.cadre-arche .deco-hero {
+    position: absolute;
+    right: -28px;
+    bottom: 50px;
+    width: 80px;
+    animation: flotte 4s ease-in-out infinite;
+}
+
+/* ---------- 7. Blocs et titres de sections ---------- */
+.bloc {
+    margin: 50px 0;
+}
+
+.titre-section {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 0 0 8px;
+}
+
+.titre-section::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 44px;
+    margin: 4px auto 0;
+    background: url("../images/deco/fleur.svg") center / contain no-repeat;
+}
+
+.intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 28px;
+}
+
+/* ---------- 8. Cartes ---------- */
+.grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.carte {
+    background: var(--blanc);
+    border: 4px solid var(--rose-clair);
+    border-radius: 26px;
+    padding: 22px;
+    box-shadow: var(--ombre);
+    text-align: center;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.carte:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    border-color: var(--rose);
+}
+
+.carte img.icone {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin: 0 auto 8px;
+}
+
+.carte h3 {
+    margin: 0 0 6px;
+    font-size: 1.4rem;
+}
+
+.carte p {
+    margin: 0;
+}
+
+.carte .lien-carte {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 18px;
+    border-radius: 999px;
+    background: var(--rose-vif);
+    color: var(--blanc);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.carte .lien-carte:hover {
+    background: var(--rouge);
+}
+
+/* ---------- 9. Compteurs ---------- */
+.compteur-bloc {
+    background: linear-gradient(135deg, var(--rose-vif), var(--rouge));
+    color: var(--blanc);
+    border-radius: 34px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: var(--ombre);
+    border: 6px solid var(--blanc);
+    outline: 4px dashed var(--rose);
+}
+
+.compteur-bloc h2 {
+    color: var(--blanc);
+    margin: 0 0 16px;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+.cases {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 640px;
+    margin: 0 auto 16px;
+}
+
+.case {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    padding: 12px 6px;
+}
+
+.case strong {
+    display: block;
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    line-height: 1.1;
+}
+
+.case small {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.compteur-bloc p {
+    margin: 6px 0;
+}
+
+.deux-colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.mini-compteur {
+    background: var(--blanc);
+    border: 4px solid var(--rose-clair);
+    border-radius: 26px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: var(--ombre);
+}
+
+.mini-compteur .gros {
+    font-family: var(--police-titre);
+    font-size: 3rem;
+    color: var(--rouge);
+    line-height: 1.1;
+}
+
+/* ---------- 10. Frise des dates ---------- */
+.frise {
+    position: relative;
+    margin: 30px 0;
+}
+
+.frise::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    border-left: 5px dotted var(--rose);
+    transform: translateX(-50%);
+}
+
+.etape {
+    position: relative;
+    width: 50%;
+    padding: 0 38px 30px 0;
+}
+
+.etape:nth-child(even) {
+    margin-left: 50%;
+    padding: 0 0 30px 38px;
+}
+
+/* Le rond sur la ligne */
+.etape::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: -14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--rose-vif) url("../images/deco/coeur.svg") center / 16px no-repeat;
+    border: 4px solid var(--blanc);
+    box-shadow: 0 0 0 3px var(--rose);
+}
+
+.etape:nth-child(even)::before {
+    right: auto;
+    left: -14px;
+}
+
+.etape .carte {
+    text-align: left;
+}
+
+.date-etape {
+    display: inline-block;
+    background: var(--rose-vif);
+    color: var(--blanc);
+    font-weight: 700;
+    padding: 2px 16px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+.etape h3 {
+    margin: 0 0 6px;
+    font-size: 1.5rem;
+}
+
+.etape ul {
+    margin: 8px 0 0;
+    padding-left: 22px;
+}
+
+.etape figure {
+    margin: 14px 0 0;
+}
+
+.etape figure img {
+    border-radius: 20px;
+    border: 5px solid var(--blanc);
+    box-shadow: var(--ombre);
+    max-height: 340px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.etape figcaption,
+figure.photo-simple figcaption {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+/* ---------- 11. Qualités (page "ce que je pense de toi") ---------- */
+.qualite .gros-emoji {
+    font-size: 2.6rem;
+    line-height: 1;
+}
+
+.citation {
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 26px 30px;
+    background: var(--blanc);
+    border-left: 8px solid var(--rose-vif);
+    border-radius: 0 26px 26px 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    box-shadow: var(--ombre);
+}
+
+.citation cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--rouge);
+}
+
+figure.photo-simple {
+    margin: 0 auto;
+    max-width: 360px;
+}
+
+figure.photo-simple img {
+    border-radius: 28px;
+    border: 8px solid var(--blanc);
+    box-shadow: var(--ombre), 0 0 0 3px var(--rose);
+    transform: rotate(-2deg);
+    transition: transform 0.3s;
+}
+
+figure.photo-simple img:hover {
+    transform: rotate(2deg) scale(1.03);
+}
+
+.cote-a-cote {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+}
+
+/* ---------- 12. Fiche d'identité (tableau) ---------- */
+.fiche {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--blanc);
+    border: 4px solid var(--rose-clair);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--ombre);
+}
+
+.fiche th,
+.fiche td {
+    padding: 12px 18px;
+    text-align: left;
+    border-bottom: 2px dashed var(--rose-clair);
+}
+
+.fiche th {
+    width: 38%;
+    background: var(--rose-pale);
+    color: var(--rouge);
+}
+
+.fiche tr:last-child th,
+.fiche tr:last-child td {
+    border-bottom: 0;
+}
+
+/* ---------- 13. Galerie et lightbox ---------- */
+.filtres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.filtres button {
+    font-family: var(--police-texte);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--rouge);
+    background: var(--blanc);
+    border: 3px solid var(--rose-clair);
+    border-radius: 999px;
+    padding: 6px 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.filtres button:hover {
+    transform: translateY(-3px);
+}
+
+.filtres button.actif {
+    background: var(--rose-vif);
+    border-color: var(--rose-vif);
+    color: var(--blanc);
+}
+
+.galerie {
+    column-count: 3;
+    column-gap: 18px;
+}
+
+.galerie .item {
+    break-inside: avoid;
+    margin: 0 0 18px;
+    background: var(--blanc);
+    padding: 10px 10px 8px;
+    border-radius: 18px;
+    border: 3px solid var(--rose-clair);
+    box-shadow: var(--ombre);
+    cursor: zoom-in;
+    transition: transform 0.25s;
+}
+
+.galerie .item:nth-child(odd) {
+    transform: rotate(-1.2deg);
+}
+.galerie .item:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.galerie .item:hover {
+    transform: rotate(0) scale(1.03);
+}
+
+.galerie .item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.galerie .item figcaption {
+    text-align: center;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding-top: 8px;
+}
+
+.galerie .item.cache {
+    display: none;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(59, 31, 51, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.lightbox.ouverte {
+    display: flex;
+}
+
+.lightbox img {
+    max-height: 78vh;
+    max-width: 92vw;
+    border-radius: 18px;
+    border: 6px solid var(--blanc);
+}
+
+.lightbox p {
+    color: var(--blanc);
+    font-weight: 700;
+    margin: 12px 0 0;
+    text-align: center;
+}
+
+.lightbox button {
+    position: absolute;
+    border: 0;
+    background: var(--rose-vif);
+    color: var(--blanc);
+    font-size: 1.6rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.lightbox button:hover {
+    background: var(--rouge);
+}
+
+.lb-fermer { top: 18px; right: 18px; }
+.lb-prec { left: 14px; top: 50%; }
+.lb-suiv { right: 14px; top: 50%; }
+
+/* ---------- 14. Lettre et enveloppe ---------- */
+.zone-lettre {
+    text-align: center;
+}
+
+.enveloppe {
+    position: relative;
+    display: block;
+    width: 320px;
+    height: 210px;
+    margin: 20px auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    perspective: 800px;
+    animation: balancier 3.4s ease-in-out infinite;
+    transition: margin-top 0.5s;
+}
+
+.enveloppe .corps {
+    position: absolute;
+    inset: 40px 0 0;
+    background: var(--rose);
+    border-radius: 0 0 20px 20px;
+    box-shadow: var(--ombre);
+}
+
+/* triangle du bas */
+.enveloppe .corps::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--rose-vif);
+    clip-path: polygon(0 100%, 50% 38%, 100% 100%);
+    border-radius: 0 0 20px 20px;
+}
+
+.enveloppe .rabat {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: var(--rouge);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    transition: transform 0.7s;
+}
+
+.enveloppe .sceau {
+    position: absolute;
+    top: 118px;
+    left: 50%;
+    width: 54px;
+    transform: translateX(-50%);
+    z-index: 3;
+    transition: opacity 0.4s;
+}
+
+.enveloppe-texte {
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+.zone-lettre.ouverte .enveloppe {
+    animation: none;
+}
+
+.zone-lettre.ouverte .rabat {
+    transform: rotateX(180deg);
+}
+
+.zone-lettre.ouverte .sceau {
+    opacity: 0;
+}
+
+.lettre-contenu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease, opacity 1s ease;
+}
+
+.zone-lettre.ouverte .lettre-contenu {
+    max-height: 2200px;
+    opacity: 1;
+}
+
+.papier {
+    max-width: 720px;
+    margin: 30px auto 0;
+    padding: 34px 38px;
+    text-align: left;
+    background-color: #fffdf8;
+    background-image: repeating-linear-gradient(transparent 0, transparent 34px, var(--rose-clair) 35px);
+    border-radius: 12px;
+    border: 4px solid var(--blanc);
+    box-shadow: var(--ombre), 0 0 0 3px var(--rose);
+    font-size: 1.2rem;
+    line-height: 35px;
+}
+
+.papier h2 {
+    margin: 0 0 6px;
+    line-height: 1.4;
+}
+
+.papier p {
+    margin: 0 0 35px;
+}
+
+.papier .signature {
+    font-family: var(--police-titre);
+    font-size: 1.7rem;
+    color: var(--rouge);
+    text-align: right;
+    margin: 0;
+}
+
+/* ---------- 15. Emplacements pour les images Halloween Kitty ---------- */
+.kitty-ligne {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+    margin: 30px 0;
+}
+
+.kitty-slot {
+    margin: 0;
+    padding: 10px;
+    background: var(--blanc);
+    border: 4px dashed var(--orange);
+    border-radius: 24px;
+    box-shadow: var(--ombre);
+}
+
+.kitty-slot img {
+    max-height: 220px;
+    width: auto;
+    border-radius: 14px;
+}
+
+.kitty-slot.vide {
+    display: none;
+}
+
+/* Décors d'Halloween */
+.decor-halloween {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 26px;
+    margin: 10px 0 0;
+}
+
+.decor-halloween img:nth-child(1) { width: 70px; animation: flotte 4s ease-in-out infinite; }
+.decor-halloween img:nth-child(2) { width: 90px; animation: balancier 3s ease-in-out infinite; }
+.decor-halloween img:nth-child(3) { width: 100px; animation: flotte 5s ease-in-out infinite; }
+.decor-halloween img:nth-child(4) { width: 80px; animation: balancier 3.6s ease-in-out infinite; }
+
+/* ---------- 16. Pied de page ---------- */
+.pied {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 28px 20px;
+    background: var(--rose-vif);
+    color: var(--blanc);
+    border-top: 6px dashed var(--blanc);
+    font-weight: 700;
+}
+
+.pied p {
+    margin: 4px 0;
+}
+
+/* ---------- 17. Coeurs qui explosent au clic ---------- */
+.eclat {
+    position: fixed;
+    width: 26px;
+    pointer-events: none;
+    z-index: 300;
+    animation: eclate 1s ease-out forwards;
+}
+
+/* ---------- 18. Apparition au défilement (seulement si le JavaScript marche) ---------- */
+.js .apparait {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.js .apparait.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ---------- 19. Animations ---------- */
+@keyframes tombe {
+    0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); }
+    50%  { transform: translateY(55vh) translateX(40px) rotate(180deg); }
+    100% { transform: translateY(115vh) translateX(-20px) rotate(360deg); }
+}
+
+@keyframes saute {
+    0%, 60%, 100% { transform: translateY(0); }
+    30%           { transform: translateY(-16px); }
+}
+
+@keyframes balancier {
+    0%, 100% { transform: rotate(-6deg); }
+    50%      { transform: rotate(6deg); }
+}
+
+@keyframes flotte {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+}
+
+@keyframes eclate {
+    0%   { opacity: 1; transform: translate(0, 0) scale(0.6); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.4); }
+}
+
+/* ---------- 20. Tablette ---------- */
+@media (max-width: 860px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .pastilles {
+        justify-content: center;
+    }
+    .galerie {
+        column-count: 2;
+    }
+    .deux-colonnes,
+    .cote-a-cote {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- 21. Téléphone ---------- */
+@media (max-width: 640px) {
+    .burger {
+        display: block;
+    }
+
+    .entete-contenu {
+        flex-wrap: wrap;
+    }
+
+    .menu {
+        width: 100%;
+        display: none;
+    }
+
+    .menu.ouvert {
+        display: block;
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+    /* la frise passe sur la gauche */
+    .frise::before {
+        left: 14px;
+    }
+
+    .etape,
+    .etape:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 0 26px 44px;
+    }
+
+    .etape::before,
+    .etape:nth-child(even)::before {
+        left: 0;
+        right: auto;
+    }
+
+    .cases {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .galerie {
+        column-count: 1;
+    }
+
+    .galerie .item:nth-child(odd),
+    .galerie .item:nth-child(even) {
+        transform: none;
+    }
+
+    .papier {
+        padding: 24px 20px;
+        font-size: 1.1rem;
+    }
+
+    .enveloppe {
+        width: 270px;
+        height: 180px;
+    }
+
+    .enveloppe .rabat {
+        height: 100px;
+    }
+
+    .enveloppe .sceau {
+        top: 98px;
+    }
+}
+
+/* ---------- 22. Respect des personnes sensibles aux animations ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js .apparait {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---------- 23. Petits réglages ajoutés ---------- */
+.mini-compteur h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* 5 cartes sur une seule ligne (accueil) */
+.grille-5 {
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+}
+
+/* Empêche tout débordement sur le côté */
+main {
+    overflow-x: clip;
+}
+
+@media (max-width: 640px) {
+    .cadre-arche .noeud-hero {
+        left: -6px;
+        width: 90px;
+    }
+    .cadre-arche .deco-hero {
+        right: -6px;
+    }
+}
+
+/* Quand l'enveloppe s'ouvre, on lui laisse la place pour que le rabat ne cache pas le texte */
+.zone-lettre.ouverte .enveloppe {
+    margin-top: 110px;
+}
+
+/* Photos hautes : on limite la hauteur */
+figure.photo-simple img {
+    max-height: 520px;
+    width: auto;
+    margin: 0 auto;
+}
+
+/* Un peu d'air sous les emojis des cartes */
+.qualite .gros-emoji {
+    margin: 0 0 10px;
+}
