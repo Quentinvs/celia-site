@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galerie ♡ Célia</title>
+    <meta name="description" content="Toutes nos photos, en grand.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cette ligne prévient le CSS que le JavaScript fonctionne -->
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="saut" href="#contenu">Aller au contenu</a>
+
+    <!-- En-tête avec le logo et le menu (identique sur toutes les pages) -->
+    <header class="entete">
+        <div class="entete-contenu">
+            <a class="logo" href="index.html"><img src="images/deco/noeud.svg" alt="">Célia</a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+            <nav class="menu" id="menu" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="nos-dates.html">Nos dates</a></li>
+                    <li><a href="ce-que-je-pense-de-toi.html">Ce que je pense de toi</a></li>
+                    <li><a href="tes-petites-manies.html">Tes petites manies</a></li>
+                    <li><a href="galerie.html" aria-current="page">Galerie</a></li>
+                    <li><a href="lettre.html">Ma lettre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenu">
+
+        <section class="bloc" aria-labelledby="titre-galerie">
+            <h1 class="titre-section" id="titre-galerie">Notre galerie</h1>
+            <p class="intro">Clique sur une photo pour la voir en grand. Tu peux aussi utiliser les flèches du clavier.</p>
+
+            <div class="filtres" role="group" aria-label="Filtrer les photos">
+                <button type="button" class="actif" data-filtre="tous">Toutes</button>
+                <button type="button" data-filtre="toi">Toi</button>
+                <button type="button" data-filtre="nous">Nous deux</button>
+                <button type="button" data-filtre="appel">En appel</button>
+                <button type="button" data-filtre="moi">Moi</button>
+            </div>
+
+            <div class="galerie">
+                <figure class="item apparait" data-cat="toi">
+                    <img src="images/photo01.jpg" alt="Célia à Disney, capuche blanche et oreilles de souris" loading="lazy">
+                    <figcaption>Disney, sous les lumières</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="appel">
+                    <img src="images/photo02.jpg" alt="Collage de grimaces en appel vidéo avec des chats rigolos" loading="lazy">
+                    <figcaption>Nos grimaces en appel</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="appel toi">
+                    <img src="images/photo03.jpg" alt="Célia qui tire la langue en appel vidéo" loading="lazy">
+                    <figcaption>Un petit coucou en appel</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="appel toi">
+                    <img src="images/photo04.jpg" alt="Célia qui sourit en appel vidéo, de nuit" loading="lazy">
+                    <figcaption>Ton sourire, même la nuit</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="moi">
+                    <img src="images/photo05.jpg" alt="Un selfie dans un miroir en arche" loading="lazy">
+                    <figcaption>Et moi, dans le miroir</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="toi">
+                    <img src="images/photo06.jpg" alt="Célia assise sur une plage de galets, face au coucher de soleil" loading="lazy">
+                    <figcaption>Face au soleil qui se couche</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="nous">
+                    <img src="images/photo07.jpg" alt="Célia et moi en selfie vidéo, de nuit" loading="lazy">
+                    <figcaption>Nous deux, pris sur le vif</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="toi">
+                    <img src="images/photo08.jpg" alt="Célia en selfie, lunettes sur le nez, qui envoie un bisou" loading="lazy">
+                    <figcaption>Ton petit bisou</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="appel toi">
+                    <img src="images/photo09.jpg" alt="Célia qui dort dans les bras d'une peluche" loading="lazy">
+                    <figcaption>Dodo avec ta peluche</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="nous">
+                    <img src="images/photo10.jpg" alt="Un câlin dans un ascenseur, vu dans le miroir" loading="lazy">
+                    <figcaption>Un câlin, rien que nous deux</figcaption>
+                </figure>
+                <figure class="item apparait" data-cat="nous">
+                    <img src="images/photo11.jpg" alt="Selfie de nous deux, moi la tête à l'envers" loading="lazy">
+                    <figcaption>Le selfie à l'envers</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Fenêtre qui affiche la photo en grand -->
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo en grand">
+            <button type="button" class="lb-fermer" id="lb-fermer" aria-label="Fermer">✕</button>
+            <button type="button" class="lb-prec" id="lb-prec" aria-label="Photo précédente">‹</button>
+            <img id="lb-image" src="images/photo01.jpg" alt="">
+            <p id="lb-legende"></p>
+            <button type="button" class="lb-suiv" id="lb-suiv" aria-label="Photo suivante">›</button>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="pied">
+        <p>Fait avec ♡ pour Célia</p>
+        <p>Rencontrés le 14 juin 2026, en couple depuis le 12 juillet 2026, et pour longtemps.</p>
+    </footer>
+</body>
+</html>

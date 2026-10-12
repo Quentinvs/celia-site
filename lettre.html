@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ma lettre pour toi ♡ Célia</title>
+    <meta name="description" content="Une lettre d'amour pour Célia, dans une enveloppe à ouvrir.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cette ligne prévient le CSS que le JavaScript fonctionne -->
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="saut" href="#contenu">Aller au contenu</a>
+
+    <!-- En-tête avec le logo et le menu (identique sur toutes les pages) -->
+    <header class="entete">
+        <div class="entete-contenu">
+            <a class="logo" href="index.html"><img src="images/deco/noeud.svg" alt="">Célia</a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+            <nav class="menu" id="menu" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="nos-dates.html">Nos dates</a></li>
+                    <li><a href="ce-que-je-pense-de-toi.html">Ce que je pense de toi</a></li>
+                    <li><a href="tes-petites-manies.html">Tes petites manies</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="lettre.html" aria-current="page">Ma lettre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenu">
+
+        <section class="bloc zone-lettre" aria-labelledby="titre-lettre">
+            <h1 class="titre-section" id="titre-lettre">Ma lettre pour toi</h1>
+            <p class="enveloppe-texte">Clique sur l'enveloppe pour l'ouvrir ♡</p>
+
+            <button type="button" class="enveloppe" id="enveloppe" aria-expanded="false" aria-controls="lettre" aria-label="Ouvrir l'enveloppe">
+                <span class="corps"></span>
+                <span class="rabat"></span>
+                <img class="sceau" src="images/deco/coeur.svg" alt="">
+            </button>
+
+            <div class="lettre-contenu" id="lettre">
+                <article class="papier">
+                    <p>Célia, je t'écris cette lettre pour te dire ce que je ressens réellement envers ta personne.</p>
+                    <p>
+                        Tu es une personne extraordinaire à mes yeux. Tu as vécu énormément de malheur et pourtant
+                        tu restes toute aussi forte tous les jours. Tu m'inspires au quotidien parce que tu es
+                        incroyable et forte.
+                    </p>
+                    <p>
+                        En plus, tu es humaine, tu as du caractère, de la bonté. Tu restes toujours attentive quand
+                        tu le veux et attentionnée si tu le veux.
+                    </p>
+                    <p>
+                        Tu as un amour énorme et je veux que tu saches que tu es, même si je me répète,
+                        la meilleure rencontre que j'ai faite depuis un bon moment.
+                    </p>
+                    <p>Je t'aime, Célia.</p>
+                    <p class="signature">Ton amoureux ♡</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="pied">
+        <p>Fait avec ♡ pour Célia</p>
+        <p>Rencontrés le 14 juin 2026, en couple depuis le 12 juillet 2026, et pour longtemps.</p>
+    </footer>
+</body>
+</html>

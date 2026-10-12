@@ -1,0 +1,27 @@
+SITE POUR CELIA
+===============
+
+COMMENT L'OUVRIR
+- Dézipper le dossier, puis double-cliquer sur index.html (ça s'ouvre dans le navigateur).
+- Pas besoin d'internet : les polices, les images et le code sont tous dans le dossier.
+- Ne pas déplacer les fichiers les uns par rapport aux autres.
+
+CONTENU DU DOSSIER
+- index.html, nos-dates.html, ce-que-je-pense-de-toi.html,
+  tes-petites-manies.html, galerie.html, lettre.html : les 6 pages
+- css/style.css : tout le style (couleurs en haut du fichier, dans :root)
+- js/script.js : compteurs, pluie de coeurs, galerie, enveloppe
+- images/ : les photos, images/deco/ : les décorations (noeud, fleur, citrouille...)
+- polices/ : les polices Quicksand et Pacifico
+
+AJOUTER LES IMAGES HALLOWEEN KITTY
+Mettre les images dans le dossier images/kitty/ avec ces noms :
+  halloween1.png, halloween2.png, halloween3.png, halloween4.png
+(.jpg, .jpeg, .webp et .gif marchent aussi). Elles apparaissent toutes seules
+dans la section "Un petit coin Halloween" de la page d'accueil.
+Pour en afficher plus de 4, changer data-nombre="4" dans index.html.
+Les images qui n'existent pas ne s'affichent pas : rien ne casse.
+
+CHANGER LES DATES
+Tout en haut de js/script.js : DATE_DEBUT (début du couple) et DATE_RENCONTRE.
+Attention : en JavaScript les mois commencent à 0 (0 = janvier, 6 = juillet).

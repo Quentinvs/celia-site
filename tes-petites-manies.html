@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tes petites manies ♡ Célia</title>
+    <meta name="description" content="Ce que Célia aime : Hello Kitty, La Belle et la Bête, les pâtes, la Red Bull vanille givrée.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cette ligne prévient le CSS que le JavaScript fonctionne -->
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="saut" href="#contenu">Aller au contenu</a>
+
+    <!-- En-tête avec le logo et le menu (identique sur toutes les pages) -->
+    <header class="entete">
+        <div class="entete-contenu">
+            <a class="logo" href="index.html"><img src="images/deco/noeud.svg" alt="">Célia</a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+            <nav class="menu" id="menu" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="nos-dates.html">Nos dates</a></li>
+                    <li><a href="ce-que-je-pense-de-toi.html">Ce que je pense de toi</a></li>
+                    <li><a href="tes-petites-manies.html" aria-current="page">Tes petites manies</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="lettre.html">Ma lettre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenu">
+
+        <section class="bloc" aria-labelledby="titre-manies">
+            <h1 class="titre-section" id="titre-manies">Tes petites manies</h1>
+            <p class="intro">Ce que tu aimes, ce qui te rend heureuse. Je les connais par coeur.</p>
+
+            <div class="grille">
+                <article class="carte apparait">
+                    <img class="icone" src="images/deco/noeud.svg" alt="">
+                    <h3>Hello Kitty</h3>
+                    <p>Ta grande passion : tu en es archi fan !</p>
+                </article>
+                <article class="carte apparait">
+                    <img class="icone" src="images/deco/fleur.svg" alt="">
+                    <h3>La Belle et la Bête</h3>
+                    <p>Un de tes films préférés.</p>
+                </article>
+                <article class="carte apparait">
+                    <img class="icone" src="images/deco/etoile.svg" alt="">
+                    <h3>Les pâtes</h3>
+                    <p>Tu adores les pâtes, sous toutes leurs formes.</p>
+                </article>
+                <article class="carte apparait">
+                    <img class="icone" src="images/deco/coeur.svg" alt="">
+                    <h3>Red Bull vanille givrée</h3>
+                    <p>Ta boisson préférée, ou presque.</p>
+                </article>
+                <article class="carte apparait">
+                    <img class="icone" src="images/deco/fleur.svg" alt="">
+                    <h3>Rose pêche blanche</h3>
+                    <p>Un autre de tes petits plaisirs.</p>
+                </article>
+                <article class="carte apparait">
+                    <img class="icone" src="images/deco/fantome.svg" alt="">
+                    <h3>Shatta et bouyon</h3>
+                    <p>Tu adores le shatta et le bouyon, et tu écoutes un peu de tout.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="bloc apparait" aria-labelledby="titre-fiche">
+            <h2 class="titre-section" id="titre-fiche">Ta fiche d'identité</h2>
+            <table class="fiche">
+                <caption class="intro">Tout sur Célia, en un coup d'oeil</caption>
+                <tr><th scope="row">Prénom</th><td>Célia</td></tr>
+                <tr><th scope="row">Surnoms</th><td>bb, mon amoureuse, ma petite femme</td></tr>
+                <tr><th scope="row">Anniversaire</th><td>28 mars 2002</td></tr>
+                <tr><th scope="row">Âge</th><td id="age-actuel">24 ans</td></tr>
+                <tr><th scope="row">Signe</th><td>Bélier ♈</td></tr>
+                <tr><th scope="row">Passion</th><td>Hello Kitty</td></tr>
+                <tr><th scope="row">Film</th><td>La Belle et la Bête</td></tr>
+                <tr><th scope="row">Plat</th><td>Les pâtes</td></tr>
+                <tr><th scope="row">Boisson</th><td>Red Bull vanille givrée</td></tr>
+                <tr><th scope="row">Musique</th><td>Shatta, bouyon et de tout</td></tr>
+            </table>
+        </section>
+
+        <section class="bloc cote-a-cote apparait">
+            <div>
+                <h2>Mon petit coin doudou</h2>
+                <p>
+                    Avec ta peluche dans les bras, tu es toute mignonne. Même en appel,
+                    j'aime te regarder, bb.
+                </p>
+            </div>
+            <figure class="photo-simple">
+                <img src="images/photo09.jpg" alt="Célia qui dort dans les bras d'une grande peluche blanche et bleue">
+                <figcaption>Dodo avec ta peluche</figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="pied">
+        <p>Fait avec ♡ pour Célia</p>
+        <p>Rencontrés le 14 juin 2026, en couple depuis le 12 juillet 2026, et pour longtemps.</p>
+    </footer>
+</body>
+</html>
