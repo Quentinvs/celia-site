@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90" width="100" height="90">
+  <!-- Coeur -->
+  <path d="M50 84 C10 56 4 30 22 14 C36 2 50 12 50 24 C50 12 64 2 78 14 C96 30 90 56 50 84 Z" fill="#ff4f8b" stroke="#c2185b" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M24 28 C26 22 32 18 38 19" fill="none" stroke="#ffc2d9" stroke-width="4" stroke-linecap="round"/>
+</svg>

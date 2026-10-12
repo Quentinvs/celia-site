@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 70" width="140" height="70">
+  <!-- Chauve-souris violette -->
+  <path d="M70 18 C60 6 40 4 6 14 C20 20 24 30 22 44 C32 36 42 38 48 50 C54 42 62 42 66 52 L70 46 L74 52 C78 42 86 42 92 50 C98 38 108 36 118 44 C116 30 120 20 134 14 C100 4 80 6 70 18 Z" fill="#6b3f8f" stroke="#3b1f33" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="64" cy="24" r="3" fill="#ffd0e0"/>
+  <circle cx="76" cy="24" r="3" fill="#ffd0e0"/>
+</svg>

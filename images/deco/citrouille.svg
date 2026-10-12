@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 110" width="120" height="110">
+  <!-- Citrouille d'Halloween toute douce -->
+  <path d="M60 22 C58 12 64 6 72 4" fill="none" stroke="#5a9a3c" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="34" cy="64" rx="26" ry="38" fill="#ffa24d" stroke="#d9741a" stroke-width="3"/>
+  <ellipse cx="86" cy="64" rx="26" ry="38" fill="#ffa24d" stroke="#d9741a" stroke-width="3"/>
+  <ellipse cx="60" cy="64" rx="26" ry="42" fill="#ffb86b" stroke="#d9741a" stroke-width="3"/>
+  <path d="M42 54 L52 44 L58 56 Z" fill="#5a2a3c"/>
+  <path d="M78 54 L68 44 L62 56 Z" fill="#5a2a3c"/>
+  <path d="M40 76 Q60 96 80 76 Q60 86 40 76 Z" fill="#5a2a3c"/>
+  <circle cx="34" cy="70" r="6" fill="#ff8fb5" opacity=".7"/>
+  <circle cx="86" cy="70" r="6" fill="#ff8fb5" opacity=".7"/>
+</svg>
